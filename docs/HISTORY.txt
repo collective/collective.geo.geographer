@@ -1,0 +1,13 @@
+Changelog
+=========
+
+0.1 (xxxx-xx-xx)
+----------------
+
+* First release
+
+0.1dev (unreleased)
+----------------
+
+* including zgeo.plone.geographer package
+* zgeo.plone.geographer code refactoring 
