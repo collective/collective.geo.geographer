@@ -1,11 +1,10 @@
 Introduction
 ============
 
-collective.geo.geographer provide geo Annotation for Plone.
+collective.geo.geographer provide geo annotation for Plone.
 
-This package is based on Sean Gillies's idea; zgeo.geographer and integrates
+This package is based on Sean Gillies's zgeo.plone.geographer and integrates
 its functionalities in collective.geo project.
-
 
 Requirements
 ------------
@@ -44,5 +43,5 @@ Check the topic
 Contributors
 ============
 
-* Sean Gillies - original author ???
+* Sean Gillies
 * Giorgio Borelli
