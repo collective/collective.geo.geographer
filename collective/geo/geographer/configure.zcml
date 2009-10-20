@@ -22,9 +22,9 @@
 
   <genericsetup:registerProfile
     name="default"
-    title="Plone Geographer"
+    title="Collective Geographer"
     directory="profiles/default"
-    description="Plone Geographer profile"
+    description="Collective Geographer profile"
     provides="Products.GenericSetup.interfaces.EXTENSION"
     />
 
