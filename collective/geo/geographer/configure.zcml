@@ -2,32 +2,17 @@
   xmlns="http://namespaces.zope.org/zope"
   xmlns:five="http://namespaces.zope.org/five"
   xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
-  i18n_domain="collective.geo.geographer"
-  >
+  i18n_domain="collective.geo.geographer" >
 
-  <include package="zgeo.geographer"/>
+  <include package="zgeo.geographer" />
 
-  <adapter factory='.zgeo_geometry_value' 
-           name='zgeo_geometry' />
+  <adapter factory='.zgeo_geometry_value'
+           name='zgeo_geometry'
+           />
 
   <five:implements
-    class="Products.ATContentTypes.content.base.BaseContent"
+    class="Products.CMFCore.PortalContent.PortalContent"
     interface="zgeo.geographer.interfaces.IGeoreferenceable"
-    />
-
-  <five:implements
-    class="Products.ATContentTypes.content.base.BaseContent"
-    interface="zope.dublincore.interfaces.ICMFDublinCore"
-    />
-
-  <five:implements
-    class="Products.ATContentTypes.content.folder.ATFolder"
-    interface="zope.dublincore.interfaces.ICMFDublinCore"
-    />
-
-  <five:implements
-    class="Products.ATContentTypes.content.folder.ATBTreeFolder"
-    interface="zope.dublincore.interfaces.ICMFDublinCore"
     />
 
   <subscriber
