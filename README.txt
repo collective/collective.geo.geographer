@@ -39,6 +39,15 @@ Check the topic
     >>> brain.zgeo_geometry['coordinates']
     (-100, 40)
 
+Conflicts
+=========
+
+There's a conflict with an event registration from Plone4ArtistsVideo
+(p4a.plonevideo, specifically).  A method from P4A Video gets called
+to try and update a 'ObjectGeoreferencedEvent' from zgeo.geographer
+when one tries to assign coordinates to a file marked with the p4a
+video subtype.  A monkey patch in this package works around the issue
+at present.
 
 Contributors
 ============
