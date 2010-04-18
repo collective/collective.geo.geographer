@@ -52,6 +52,5 @@ at present.
 Contributors
 ============
 
-* Sean Gillies
+* Sean Gillies - author
 * Giorgio Borelli
-* David Breitkreutz - rockdj

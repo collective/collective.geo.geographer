@@ -30,24 +30,10 @@ class TestCase(ptc.PloneTestCase):
 def test_suite():
     return unittest.TestSuite([
 
-        # Unit tests
-        #doctestunit.DocFileSuite(
-        #    'README.txt', package='collective.geo.geographer',
-        #    setUp=testing.setUp, tearDown=testing.tearDown),
-
-        #doctestunit.DocTestSuite(
-        #    module='collective.geo.geographer.mymodule',
-        #    setUp=testing.setUp, tearDown=testing.tearDown),
-
-
         # Integration tests that use PloneTestCase
         ztc.ZopeDocFileSuite(
             'README.txt', package='collective.geo.geographer',
             test_class=GeographerFunctionalTestCase),
-
-        #ztc.FunctionalDocFileSuite(
-        #    'browser.txt', package='collective.geo.geographer',
-        #    test_class=TestCase),
 
         ])
 

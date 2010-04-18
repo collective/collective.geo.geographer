@@ -4,8 +4,5 @@ Changelog
 0.1 (xxxx-xx-xx)
 ----------------
 
-* Added ability to return 'styles' as part of the geo value dictionary,
-  supporting the retrieval of the style annotation for Plone content.
-  [rockdj]
-* included zgeo.plone.geographer package
 * zgeo.plone.geographer code refactoring 
+* moved from zgeo.plone.geographer

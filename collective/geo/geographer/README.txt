@@ -44,5 +44,5 @@ Check the topic
 Contributors
 ============
 
-* Sean Gillies - original author ???
+* Sean Gillies - author
 * Giorgio Borelli
