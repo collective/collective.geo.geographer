@@ -22,7 +22,7 @@
 
   <genericsetup:registerProfile
     name="default"
-    title="Collective Geographer"
+    title="Collective Geo Geographer"
     directory="profiles/default"
     description="Collective Geographer profile"
     provides="Products.GenericSetup.interfaces.EXTENSION"
