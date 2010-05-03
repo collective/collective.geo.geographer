@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 import os
 
-version = '0.2dev'
+version = '0.1dev'
 
 setup(name='collective.geo.geographer',
       version=version,
