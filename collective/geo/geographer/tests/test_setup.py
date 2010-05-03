@@ -1,9 +1,9 @@
 import unittest
-from collective.geo.geographer.tests.base import GeographerTestCase
+from collective.geo.geographer.tests.base import TestCase
 from Products.CMFCore.utils import getToolByName
 
 
-class TestSetup(GeographerTestCase):
+class TestSetup(TestCase):
 
     def afterSetUp(self):
         self.cat = getToolByName(self.portal, 'portal_catalog')

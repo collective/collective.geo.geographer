@@ -11,7 +11,7 @@ from Products.PloneTestCase.layer import PloneSite
 ptc.setupPloneSite()
 
 import collective.geo.geographer
-from collective.geo.geographer.tests.base import GeographerFunctionalTestCase
+from collective.geo.geographer.tests.base import FunctionalTestCase
 
 class TestCase(ptc.PloneTestCase):
     class layer(PloneSite):
@@ -33,7 +33,7 @@ def test_suite():
         # Integration tests that use PloneTestCase
         ztc.ZopeDocFileSuite(
             'README.txt', package='collective.geo.geographer',
-            test_class=GeographerFunctionalTestCase),
+            test_class=FunctionalTestCase),
 
         ])
 
