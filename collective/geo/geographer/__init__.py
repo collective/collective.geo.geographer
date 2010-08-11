@@ -1,5 +1,5 @@
 from zope.component.interfaces import ComponentLookupError
-from zgeo.geographer.interfaces import IGeoreferenced
+from collective.geo.geographer.interfaces import IGeoreferenced
 from plone.indexer.decorator import indexer
 from zope import interface
 

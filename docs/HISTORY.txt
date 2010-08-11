@@ -4,5 +4,6 @@ Changelog
 0.1 (xxxx-xx-xx)
 ----------------
 
+* removed zgeo.geographer dependency
 * zgeo.plone.geographer code refactoring 
 * moved from zgeo.plone.geographer

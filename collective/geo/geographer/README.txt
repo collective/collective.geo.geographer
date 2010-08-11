@@ -10,10 +10,70 @@ its functionalities in collective.geo project.
 Requirements
 ------------
 
-* zgeo.geographer >= 0.3
+* Plone >= 4
 
 How it work
 -----------
+
+Any object that implements zope.annotation.interfaces.IAttributeAnnotatable and
+collective.geo.geographer.interfaces.IGeoreferenceable can be adapted and geo-referenced.
+The former marker is standard for Zope content objects, and the latter can be
+easily configured via ZCML.
+
+Let's test with an example placemark, which provides both of the marker
+interfaces mentioned above.
+
+    >>> from zope.interface import implements
+    >>> from zope.annotation.interfaces import IAttributeAnnotatable
+    >>> from collective.geo.geographer.interfaces import IGeoreferenceable
+
+    >>> class Placemark(object):
+    ...     implements(IGeoreferenceable, IAttributeAnnotatable)
+
+    >>> placemark = Placemark()
+
+Adapt it to IGeoreferenced
+
+    >>> from collective.geo.geographer.interfaces import IGeoreferenced
+    >>> geo = IGeoreferenced(placemark)
+
+Its properties should all be None
+
+    >>> geo.type is None
+    True
+    >>> geo.coordinates is None
+    True
+    >>> geo.crs is None
+    True
+
+Now set the location geometry to type "Point" and coordinates 105.08 degrees
+West, 40.59 degrees North using setGeoInterface()
+
+    >>> geo.setGeoInterface('Point', (-105.08, 40.59))
+
+A georeferenced object has "type" and "coordinates" attributes which should
+give us back what we put in.
+
+    >>> geo.type
+    'Point'
+    >>> geo.coordinates
+    (-105.08, 40.590000000000003)
+    >>> geo.crs is None
+    True
+
+An event should have been sent
+
+    >>> from zope.component.eventtesting import getEvents
+    >>> from zope.lifecycleevent.interfaces import IObjectModifiedEvent
+    >>> events = getEvents(IObjectModifiedEvent)
+    >>> len(events)
+    1
+    >>> events[0].object is placemark
+    True
+
+
+Plone integration
+-----------------
 
 Make a topic in our folder
 
@@ -28,7 +88,7 @@ Add geo-referenced content
 
     >>> oid = self.folder.invokeFactory('Document', 'doc')
     >>> doc = self.folder[oid]
-    >>> from zgeo.geographer.interfaces import IWriteGeoreferenced
+    >>> from collective.geo.geographer.interfaces import IWriteGeoreferenced
     >>> geo = IWriteGeoreferenced(doc)
     >>> geo.setGeoInterface('Point', (-100, 40))
 

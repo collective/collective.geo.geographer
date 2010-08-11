@@ -25,7 +25,6 @@ setup(name='collective.geo.geographer',
       zip_safe=False,
       install_requires=[
           'setuptools',
-          'zgeo.geographer',
           # -*- Extra requirements: -*-
       ],
       entry_points="""

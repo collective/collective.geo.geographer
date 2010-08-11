@@ -4,7 +4,25 @@
   xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
   i18n_domain="collective.geo.geographer" >
 
-  <include package="zgeo.geographer" />
+  <include package="zope.security"/> 
+
+  <adapter
+    factory=".geo.GeoreferencingAnnotator"
+    provides=".interfaces.IWriteGeoreferenced"
+    trusted="true"
+    />
+
+  <class class=".geo.GeoreferencingAnnotator">
+    <require
+      permission="zope.View"
+      interface=".interfaces.IGeoreferenced"
+      />
+    <require
+      permission="zope.ManageContent"
+      interface=".interfaces.IWritableGeoreference"
+      />
+  </class>
+
 
   <adapter factory='.zgeo_geometry_value'
            name='zgeo_geometry'
@@ -12,12 +30,12 @@
 
   <five:implements
     class="Products.CMFCore.PortalContent.PortalContent"
-    interface="zgeo.geographer.interfaces.IGeoreferenceable"
+    interface="collective.geo.geographer.interfaces.IGeoreferenceable"
     />
 
   <subscriber
     handler=".event.reindexDocSubscriber"
-    for="zgeo.geographer.event.IObjectGeoreferencedEvent"
+    for="collective.geo.geographer.event.IObjectGeoreferencedEvent"
     />
 
   <genericsetup:registerProfile

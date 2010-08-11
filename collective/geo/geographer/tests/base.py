@@ -19,7 +19,7 @@ def setup():
     fiveconfigure.debug_mode = False
 
 setup()
-ptc.setupPloneSite(products=['collective.geo.geographer','zgeo.geographer'])
+ptc.setupPloneSite(products=['collective.geo.geographer',])
 
 class TestCase(ptc.PloneTestCase):
     """We use this base class for all the tests in this package. If necessary,
