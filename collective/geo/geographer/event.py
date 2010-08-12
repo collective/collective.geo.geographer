@@ -23,7 +23,7 @@ logger.info("Patching collective.geo.geographer.events's ObjectGeoreferencedEven
 def reindexDocSubscriber(event):
     """A subscriber to ObjectModifiedEvent"""
     try:
-        event.object.reindexObject()
+        event.object.reindexObject(idxs=['zgeo_geometry'])
     except:
         pass
 
