@@ -23,15 +23,9 @@
       />
   </class>
 
-
   <adapter factory='.zgeo_geometry_value'
            name='zgeo_geometry'
            />
-
-  <five:implements
-    class="Products.CMFCore.PortalContent.PortalContent"
-    interface="collective.geo.geographer.interfaces.IGeoreferenceable"
-    />
 
   <subscriber
     handler=".event.reindexDocSubscriber"
