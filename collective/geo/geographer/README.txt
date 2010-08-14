@@ -107,6 +107,14 @@ Check the topic
     (-100, 40)
 
 
+A simple view could we 
+    >>> doc.restrictedTraverse('@@geoview').isGeoreferenceable()
+    True
+
+    >>> topic.restrictedTraverse('@@geoview').isGeoreferenceable()
+    False
+
+
 Contributors
 ============
 

@@ -2,6 +2,7 @@
   xmlns="http://namespaces.zope.org/zope"
   xmlns:five="http://namespaces.zope.org/five"
   xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+  xmlns:browser="http://namespaces.zope.org/browser"
   i18n_domain="collective.geo.geographer" >
 
   <include package="zope.security"/> 
@@ -30,6 +31,15 @@
   <subscriber
     handler=".event.reindexDocSubscriber"
     for="collective.geo.geographer.event.IObjectGeoreferencedEvent"
+    />
+
+
+  <browser:page
+    name="geoview"
+    for="*"
+    class=".geoview.GeoView"
+    permission = "zope2.View"
+    allowed_attributes="isGeoreferenceable"
     />
 
   <genericsetup:registerProfile
