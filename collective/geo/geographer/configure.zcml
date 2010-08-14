@@ -42,6 +42,13 @@
     allowed_attributes="isGeoreferenceable"
     />
 
+  <browser:page
+      name="geocoderview"
+      for=".interfaces.IGeoreferenceable"
+      class=".geocoder.GeoCoderView"
+      permission = "cmf.ModifyPortalContent"
+  />
+
   <genericsetup:registerProfile
     name="default"
     title="Collective Geo Geographer"

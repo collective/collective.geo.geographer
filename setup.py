@@ -25,6 +25,8 @@ setup(name='collective.geo.geographer',
       zip_safe=False,
       install_requires=[
           'setuptools',
+          'simplejson',
+          'geopy',
           # -*- Extra requirements: -*-
       ],
       entry_points="""
