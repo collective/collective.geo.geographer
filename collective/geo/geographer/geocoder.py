@@ -31,9 +31,5 @@ class GeoCoderView(BrowserView):
         try:
             locations = self.geocoder.retrieve(address)
         except GQueryError:
-            return "No corresponding geographic location could be found for the " \
-                   "specified location, possibly because the address is relatively " \
-                   "new, or because it may be incorrect."
-
+            return 'null'
         return simplejson.dumps([loc for loc in locations])
-
