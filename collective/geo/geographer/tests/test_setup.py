@@ -7,9 +7,10 @@ class TestSetup(TestCase):
 
     def afterSetUp(self):
         self.cat = getToolByName(self.portal, 'portal_catalog')
-    
+
     def test_catalog_metadata(self):
-        self.failUnless('zgeo_geometry' in self.cat.schema(), self.cat.schema())
+        self.failUnless('zgeo_geometry' in self.cat.schema(),
+                                                self.cat.schema())
 
 
 def test_suite():

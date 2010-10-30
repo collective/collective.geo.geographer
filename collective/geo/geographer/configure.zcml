@@ -25,22 +25,25 @@
   </class>
 
   <adapter factory='.zgeo_geometry_value'
-           name='zgeo_geometry'
-           />
+           name='zgeo_geometry' />
+
+  <adapter factory='.geocoder.GeoCoder'
+           provides=".interfaces.IGeoCoder"
+           for= '*'/>
 
   <subscriber
     handler=".event.reindexDocSubscriber"
     for="collective.geo.geographer.event.IObjectGeoreferencedEvent"
-    />
+  />
 
 
   <browser:page
-    name="geoview"
-    for="*"
-    class=".geoview.GeoView"
-    permission = "zope2.View"
-    allowed_attributes="isGeoreferenceable"
-    />
+      name="geoview"
+      for="*"
+      class=".geoview.GeoView"
+      permission = "zope2.View"
+      allowed_attributes="isGeoreferenceable"
+  />
 
   <browser:page
       name="geocoderview"
@@ -50,11 +53,11 @@
   />
 
   <genericsetup:registerProfile
-    name="default"
-    title="Collective Geo Geographer"
-    directory="profiles/default"
-    description="Collective Geographer profile"
-    provides="Products.GenericSetup.interfaces.EXTENSION"
-    />
+      name="default"
+      title="Collective Geo Geographer"
+      directory="profiles/default"
+      description="Collective Geographer profile"
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+  />
 
 </configure>

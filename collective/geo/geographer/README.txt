@@ -1,9 +1,9 @@
 Introduction
 ============
 
-collective.geo.geographer provide geo annotation for Plone.
+collective.geo.geographer provides geo annotation for Plone.
 
-This package is based on Sean Gillies's idea; zgeo.geographer and integrates
+This package is based on Sean Gillies's idea (zgeo.geographer) and integrates
 its functionalities in collective.geo project.
 
 
@@ -107,7 +107,7 @@ Check the topic
     (-100, 40)
 
 
-A simple view could we 
+A simple view notify us if a context is geo referenceable
     >>> doc.restrictedTraverse('@@geoview').isGeoreferenceable()
     True
 
@@ -118,5 +118,5 @@ A simple view could we
 Contributors
 ============
 
-* Sean Gillies - author
+* Sean Gillies
 * Giorgio Borelli

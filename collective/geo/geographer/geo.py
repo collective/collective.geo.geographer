@@ -5,7 +5,6 @@ from zope.annotation.interfaces import IAnnotations
 from persistent.dict import PersistentDict
 from collective.geo.geographer.interfaces import IGeoreferenceable
 from collective.geo.geographer.interfaces import IWriteGeoreferenced
-# IGeoreferenced, 
 from collective.geo.geographer.event import ObjectGeoreferencedEvent
 
 import logging
@@ -16,9 +15,8 @@ KEY = 'collective.geo.geographer.georeference'
 
 
 class GeoreferencingAnnotator(object):
-    
     """Geographically annotate objects with metadata modeled after GeoJSON.
-    See http://geojson.org.
+    See http://geojson.org
     """
     implements(IWriteGeoreferenced)
     adapts(IGeoreferenceable)

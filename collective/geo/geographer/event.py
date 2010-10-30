@@ -9,6 +9,7 @@ class IObjectGeoreferencedEvent(IObjectModifiedEvent):
     """An event signaling that an object has been georeferenced
     """
 
+
 class ObjectGeoreferencedEvent(object):
     implements(IObjectGeoreferencedEvent)
 
@@ -17,7 +18,9 @@ class ObjectGeoreferencedEvent(object):
 
 
 ObjectGeoreferencedEvent.descriptions = {}
-logger.info("Patching collective.geo.geographer.events's ObjectGeoreferencedEvent to have a 'descriptions' field to handle an issue with p4a.plonevideo.")
+logger.info("Patching collective.geo.geographer.events's "\
+        "ObjectGeoreferencedEvent to have a 'descriptions' "\
+        "field to handle an issue with p4a.plonevideo.")
 
 
 def reindexDocSubscriber(event):
@@ -26,5 +29,3 @@ def reindexDocSubscriber(event):
         event.object.reindexObject(idxs=['zgeo_geometry'])
     except:
         pass
-
-
