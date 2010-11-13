@@ -47,7 +47,7 @@
 
   <browser:page
       name="geocoderview"
-      for=".interfaces.IGeoreferenceable"
+      for="Products.CMFPlone.interfaces.IPloneSiteRoot"
       class=".geocoder.GeoCoderView"
       permission = "cmf.ModifyPortalContent"
   />

@@ -39,7 +39,7 @@ class TestGeocoder(FunctionalTestCase):
 
         for item in test_params:
             obj_url = "%s/@@geocoderview?address=%s" % \
-                            (self.obj.absolute_url(), item['address'])
+                            (self.portal.absolute_url(), item['address'])
             browser.open(obj_url)
             view_contents = simplejson.loads(browser.contents)
 
