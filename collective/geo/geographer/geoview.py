@@ -3,7 +3,7 @@ from zope.interface import implements
 from Products.Five.browser import BrowserView
 
 from collective.geo.geographer.interfaces import IGeoreferenceable
-from collective.geo.contentlocations.interfaces import IGeoView
+from collective.geo.geographer.interfaces import IGeoView
 
 
 class GeoView(BrowserView):

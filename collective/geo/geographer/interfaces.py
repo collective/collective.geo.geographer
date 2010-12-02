@@ -50,3 +50,17 @@ class IGeoCoder(Interface):
     def retrieve(self, address = None, google_api = None):
         """retrieve coordinates by an address
         """
+
+
+class IGeoView(Interface):
+    """View to access coordinates
+    """
+
+    def isGeoreferenceable(self):
+        """ Returns True if an object is Georeferenceable
+        """
+
+    def getCoordinates(self):
+        """ Public function to get object coordinates
+        """
+
