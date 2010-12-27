@@ -1,5 +1,11 @@
+collective.geo.geographer
+=========================
+
+.. contents:: Summary
+   :local:
+
 Introduction
-============
+------------
 
 collective.geo.geographer provides geo annotation for Plone.
 
@@ -118,7 +124,7 @@ A simple view notify us if a context is geo referenceable
 
 
 Contributors
-============
+------------
 
 * Sean Gillies
 * Giorgio Borelli

@@ -4,7 +4,7 @@ Changelog
 0.1.2 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Moved IGeoView from c.geo.contentlocations 
 
 
 0.1.1 (2010-11-13)
