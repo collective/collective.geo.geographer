@@ -72,11 +72,9 @@ give us back what we put in.
 An event should have been sent
 
     >>> from zope.component.eventtesting import getEvents
-    >>> from zope.lifecycleevent.interfaces import IObjectModifiedEvent
-    >>> events = getEvents(IObjectModifiedEvent)
-    >>> len(events)
-    1
-    >>> events[0].object is placemark
+    >>> from collective.geo.geographer.event import IObjectGeoreferencedEvent
+    >>> events = getEvents(IObjectGeoreferencedEvent)
+    >>> events[-1].object is placemark
     True
 
 
