@@ -11,10 +11,11 @@ setup(name='collective.geo.geographer',
       # Get more strings from http://www.python.org/pypi?%3Aaction=list_classifiers
       classifiers=[
         "Framework :: Plone",
+        "Topic :: Internet",
+        "Topic :: Scientific/Engineering :: GIS",
         "Programming Language :: Python",
-        "Topic :: Software Development :: Libraries :: Python Modules",
         ],
-      keywords='gis geography geospatial plone',
+      keywords='Zope Plone GIS KML Google Maps Bing Yahoo OpenLayers',
       author='Giorgio Borelli',
       author_email='giorgio@giorgioborelli.it',
       url="http://plone.org/products/collective.geo",
