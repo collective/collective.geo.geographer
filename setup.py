@@ -26,14 +26,11 @@ setup(name='collective.geo.geographer',
       zip_safe=False,
       install_requires=[
           'setuptools',
+          'Plone',
           'simplejson',
           'geopy',
           # -*- Extra requirements: -*-
       ],
-      extras_require = {
-        'test': [
-            'Products.PloneTestCase']
-      },
       entry_points="""
       # -*- Entry points: -*-
       [z3c.autoinclude.plugin]
