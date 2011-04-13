@@ -4,7 +4,7 @@ from geopy.geocoders.google import GQueryError
 
 from zope.interface import alsoProvides
 
-from Products.Five.testbrowser import Browser
+from Testing.testbrowser import Browser
 from Products.PloneTestCase.setup import portal_owner
 from Products.PloneTestCase.setup import default_password
 
