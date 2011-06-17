@@ -1,3 +1,4 @@
+<?xml version="1.0"?>
 <configure
   xmlns="http://namespaces.zope.org/zope"
   xmlns:five="http://namespaces.zope.org/five"
@@ -5,7 +6,8 @@
   xmlns:browser="http://namespaces.zope.org/browser"
   i18n_domain="collective.geo.geographer" >
 
-  <include package="zope.security"/> 
+  <include package="zope.security"/>
+  <include package="Products.CMFCore" file="configure.zcml" />
 
   <adapter
     factory=".geo.GeoreferencingAnnotator"
