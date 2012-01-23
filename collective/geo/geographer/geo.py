@@ -49,3 +49,8 @@ class GeoreferencingAnnotator(object):
         self.geo['coordinates'] = coordinates
         self.geo['crs'] = crs
         notify(ObjectGeoreferencedEvent(self.context))
+        
+    def removeGeoInterface(self):
+        self.geo['type'] = None
+        self.geo['coordinates'] = None
+        self.geo['crs'] = None
