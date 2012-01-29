@@ -7,7 +7,7 @@ from Products.PloneTestCase import PloneTestCase as ptc
 from Products.PloneTestCase.layer import onsetup
 
 # from collective.geo.geographer.interfaces import IGeoCoder
-from collective.geo.geographer.geocoder import GeoCoder
+from collective.geo.geographer.geocoder import GeoCoderUtility
 from geopy.geocoders.google import GQueryError
 
 
@@ -28,7 +28,7 @@ def setup():
     fiveconfigure.debug_mode = False
 
 setup()
-ptc.setupPloneSite(products=['collective.geo.geographer', ])
+ptc.setupPloneSite(extension_profiles=['collective.geo.geographer:default', ])
 
 
 test_params = [{'address': "Torino Italy",
@@ -57,9 +57,9 @@ test_params = [{'address': "Torino Italy",
                                     (45.811786499999997, 11.0141562))]}]
 
 
-class DummyGeoCoder(GeoCoder):
+class DummyGeoCoder(GeoCoderUtility):
 
-    def retrieve(self, address = None, google_api = None):
+    def retrieve(self, address=None, google_api=None):  # pylint: disable=W0613
         for item in test_params:
             if address == item['address']:
                 return item['output']

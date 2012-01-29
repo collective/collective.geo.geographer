@@ -33,6 +33,11 @@
            provides=".interfaces.IGeoCoder"
            for= '*'/>
 
+  <utility
+    provides=".interfaces.IGeoCoder"
+    factory=".geocoder.get_geocoder"
+    />
+
   <subscriber
     handler=".event.reindexDocSubscriber"
     for="collective.geo.geographer.event.IObjectGeoreferencedEvent"

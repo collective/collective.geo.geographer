@@ -1,14 +1,14 @@
 from setuptools import setup, find_packages
 import os
 
-version = '0.1.4dev'
+version = '1.4dev'
 
 setup(name='collective.geo.geographer',
       version=version,
       description="Geographic annotation for Plone",
-      long_description=open("collective/geo/geographer/README.txt").read() + "\n" +
-                       open(os.path.join("docs", "HISTORY.txt")).read(),
-      # Get more strings from http://www.python.org/pypi?%3Aaction=list_classifiers
+      long_description=open(
+              "collective/geo/geographer/README.txt").read() + "\n" +
+                      open(os.path.join("docs", "HISTORY.txt")).read(),
       classifiers=[
         "Framework :: Plone",
         "Topic :: Internet",

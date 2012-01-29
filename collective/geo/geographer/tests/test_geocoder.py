@@ -3,7 +3,7 @@ import simplejson
 from geopy.geocoders.google import GQueryError
 
 from zope.interface import alsoProvides
-
+from zope.component import getUtility
 from Testing.testbrowser import Browser
 from Products.PloneTestCase.setup import portal_owner
 from Products.PloneTestCase.setup import default_password
@@ -19,7 +19,7 @@ class TestGeocoder(FunctionalTestCase):
     def afterSetUp(self):
         self.oid = self.folder.invokeFactory('Document', 'doc')
         self.obj = self.folder[self.oid]
-        self.geo = IGeoCoder(self.obj)
+        self.geo = getUtility(IGeoCoder)
         alsoProvides(self.obj, IGeoreferenceable)
 
     def test_geocoder_base(self):
