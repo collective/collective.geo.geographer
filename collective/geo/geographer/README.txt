@@ -78,6 +78,17 @@ An event should have been sent
     True
 
 
+Use removeGeoInterface() to remove the coordinate from a georeferenced object:
+
+    >>> geo.removeGeoInterface()
+    >>> geo.type is None
+    True
+    >>> geo.coordinates is None
+    True
+    >>> geo.crs is None
+    True
+
+
 Plone integration
 -----------------
 
@@ -119,6 +130,12 @@ A simple view notify us if a context is geo referenceable
 
     >>> topic.restrictedTraverse('@@geoview').isGeoreferenceable()
     False
+
+When we remove the coordinates corresponding index will return None
+    >>> geo.removeGeoInterface()
+    >>> brain = [b for b in topic.queryCatalog() if b.id == 'doc'][0]
+    >>> brain.zgeo_geometry is None
+    True
 
 
 Contributors

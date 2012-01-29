@@ -6,14 +6,12 @@ class IGeoreferenceable(Interface):
     """
 
 
-class IGeoInterface(Interface):
-    """Provides the Python geo interface.
-
-    See http://trac.gispython.org/projects/PCL/wiki/PythonGeoInterface
-    for details.
-    """
-
-    __geo_interface__ = Attribute("""Python Geo Interface""")
+# class IGeoInterface(Interface):
+#     """Provides the Python geo interface.
+#     See http://trac.gispython.org/projects/PCL/wiki/PythonGeoInterface
+#     for details.
+#     """
+#     __geo_interface__ = Attribute("""Python Geo Interface""")
 
 
 class IGeoreferenced(Interface):
@@ -35,19 +33,23 @@ class IGeoreferenced(Interface):
 
 class IWritableGeoreference(Interface):
 
-    def setGeoInterface(type, coordinates, crs):
+    def setGeoInterface(self, type, coordinates, crs):
         """Set the geometry via the geo interface."""
+
+    def removeGeoInterface(self):
+        """Remove the geometry via the geo interface."""
 
 
 class IWriteGeoreferenced(IGeoreferenced, IWritableGeoreference):
     """Supports read/write georeferencing.
     """
 
+
 class IGeoCoder(Interface):
     """Adapter for geocoding feature
     """
 
-    def retrieve(self, address = None, google_api = None):
+    def retrieve(self, address=None, google_api=None):
         """retrieve coordinates by an address
         """
 
@@ -63,4 +65,3 @@ class IGeoView(Interface):
     def getCoordinates(self):
         """ Public function to get object coordinates
         """
-
