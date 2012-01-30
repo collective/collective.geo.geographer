@@ -1,16 +1,19 @@
-import unittest
-from collective.geo.geographer.tests.base import TestCase
+# -*- coding: utf-8 -*-
+import unittest2 as unittest
 from Products.CMFCore.utils import getToolByName
 
+from layers import INTEGRATION_TESTING
 
-class TestSetup(TestCase):
 
-    def afterSetUp(self):
-        self.cat = getToolByName(self.portal, 'portal_catalog')
+class TestSetup(unittest.TestCase):
+    layer = INTEGRATION_TESTING
+
+    def setUp(self):
+        self.cat = getToolByName(self.layer['portal'], 'portal_catalog')
 
     def test_catalog_metadata(self):
-        self.failUnless('zgeo_geometry' in self.cat.schema(),
-                                                self.cat.schema())
+        schema = self.cat.schema()
+        self.assertTrue('zgeo_geometry' in schema, schema)
 
 
 def test_suite():

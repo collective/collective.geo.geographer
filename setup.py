@@ -31,6 +31,11 @@ setup(name='collective.geo.geographer',
           'geopy',
           # -*- Extra requirements: -*-
       ],
+      extras_require={
+        'tests': [
+            'plone.app.testing',
+        ],
+      },
       entry_points="""
       # -*- Entry points: -*-
       [z3c.autoinclude.plugin]

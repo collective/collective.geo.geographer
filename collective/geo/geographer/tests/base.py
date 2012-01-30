@@ -1,34 +1,5 @@
-from zope.component import eventtesting
-# from Products.Five import zcml
-from Zope2.App import zcml
-from Products.Five import fiveconfigure
-
-from Products.PloneTestCase import PloneTestCase as ptc
-from Products.PloneTestCase.layer import onsetup
-
-# from collective.geo.geographer.interfaces import IGeoCoder
 from collective.geo.geographer.geocoder import GeoCoderUtility
 from geopy.geocoders.google import GQueryError
-
-
-@onsetup
-def setup():
-    """Set up the additional products required for the Pleiades site policy.
-
-    The @onsetup decorator causes the execution of this body to be deferred
-    until the setup of the Plone site testing layer.
-    """
-
-    fiveconfigure.debug_mode = True
-    import collective.geo.geographer
-    zcml.load_config('configure.zcml', collective.geo.geographer)
-    import collective.geo.geographer.tests
-    zcml.load_config('test.zcml', collective.geo.geographer.tests)
-
-    fiveconfigure.debug_mode = False
-
-setup()
-ptc.setupPloneSite(extension_profiles=['collective.geo.geographer:default', ])
 
 
 test_params = [{'address': "Torino Italy",
@@ -64,23 +35,3 @@ class DummyGeoCoder(GeoCoderUtility):
             if address == item['address']:
                 return item['output']
         raise GQueryError
-
-
-class TestCase(ptc.PloneTestCase):
-    """We use this base class for all the tests in this package. If necessary,
-    we can put common utility or setup code in here.
-    """
-
-
-class FunctionalTestCase(ptc.FunctionalTestCase):
-    """We use this base class for all the tests in this package. If necessary,
-    we can put common utility or setup code in here.
-    """
-
-    def setUp(test):
-        super(FunctionalTestCase, test).setUp()
-        eventtesting.setUp()
-
-    def afterSetUp(test):
-        lpf = test.portal.portal_types['Topic']
-        lpf.global_allow = True

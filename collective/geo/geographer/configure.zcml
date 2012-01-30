@@ -56,7 +56,7 @@
       name="geocoderview"
       for="Products.CMFPlone.interfaces.IPloneSiteRoot"
       class=".geocoder.GeoCoderView"
-      permission = "cmf.ModifyPortalContent"
+      permission = "zope2.View"
   />
 
   <genericsetup:registerProfile

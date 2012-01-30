@@ -4,6 +4,7 @@ Changelog
 1.4 (unreleased)
 ----------------
 
+- changed tests using plone.app.testing [gborelli]
 - Added IGeoCoder utility [gborelli]
 - Marked as deprecated IGeoCoder adapter [gborelli]
 - Added removeGeoInterface to remove coordinates

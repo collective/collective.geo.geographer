@@ -1,24 +1,34 @@
-import unittest
+import unittest2 as unittest
 import simplejson
 from geopy.geocoders.google import GQueryError
 
 from zope.interface import alsoProvides
 from zope.component import getUtility
-from Testing.testbrowser import Browser
-from Products.PloneTestCase.setup import portal_owner
-from Products.PloneTestCase.setup import default_password
 
-from collective.geo.geographer.tests.base import FunctionalTestCase
+from plone.testing.z2 import Browser
+from plone.app.testing import TEST_USER_ID
+from plone.app.testing import TEST_USER_NAME
+from plone.app.testing import TEST_USER_PASSWORD
+from plone.app.testing import setRoles
+
 from collective.geo.geographer.tests.base import test_params
 from collective.geo.geographer.interfaces import IGeoreferenceable
 from collective.geo.geographer.interfaces import IGeoCoder
 
+from layers import FUNCTIONAL_TESTING
 
-class TestGeocoder(FunctionalTestCase):
 
-    def afterSetUp(self):
-        self.oid = self.folder.invokeFactory('Document', 'doc')
-        self.obj = self.folder[self.oid]
+class TestGeocoder(unittest.TestCase):
+    layer = FUNCTIONAL_TESTING
+
+    def setUp(self):
+        self.portal = self.layer['portal']
+
+        setRoles(self.portal, TEST_USER_ID, ['Manager'])
+        self.oid = self.portal.invokeFactory('Document', 'doc')
+        setRoles(self.portal, TEST_USER_ID, ['Member'])
+
+        self.obj = self.portal[self.oid]
         self.geo = getUtility(IGeoCoder)
         alsoProvides(self.obj, IGeoreferenceable)
 
@@ -33,9 +43,9 @@ class TestGeocoder(FunctionalTestCase):
                           "not existent place aklhj asaas")
 
     def test_geocoder_view(self):
-        browser = Browser()
+        browser = Browser(self.layer['app'])
         browser.addHeader('Authorization',
-                          'Basic %s:%s' % (portal_owner, default_password))
+                'Basic %s:%s' % (TEST_USER_NAME, TEST_USER_PASSWORD,))
 
         for item in test_params:
             obj_url = "%s/@@geocoderview?address=%s" % \

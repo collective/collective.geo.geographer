@@ -77,7 +77,6 @@ An event should have been sent
     >>> events[-1].object is placemark
     True
 
-
 Use removeGeoInterface() to remove the coordinate from a georeferenced object:
 
     >>> geo.removeGeoInterface()
@@ -94,17 +93,20 @@ Plone integration
 
 Make a topic in our folder
 
-    >>> self.setRoles(('Manager',))
+    >>> from plone.app.testing import setRoles
+    >>> from plone.app.testing import TEST_USER_ID
+    >>> portal = layer['portal']
+    >>> setRoles(portal, TEST_USER_ID, ['Manager'])
 
-    >>> folder = self.folder
-    >>> oid = self.folder.invokeFactory('Topic', 'topic')
-    >>> topic = self.folder[oid]
+    >>> oid = portal.invokeFactory('Topic', 'topic')
+    >>> topic = portal[oid]
     >>> c = topic.addCriterion('getGeometry', 'ATBooleanCriterion')
+
 
 Add geo-referenced content
 
-    >>> oid = self.folder.invokeFactory('Document', 'doc')
-    >>> doc = self.folder[oid]
+    >>> oid = portal.invokeFactory('Document', 'doc')
+    >>> doc = portal[oid]
 
 If content type doesn't implements IGeoreferenceable interfaces we need to provide it
     >>> from zope.interface import alsoProvides
