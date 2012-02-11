@@ -109,10 +109,12 @@ Add geo-referenced content
     >>> doc = portal[oid]
 
 If content type doesn't implements IGeoreferenceable interfaces we need to provide it
+
     >>> from zope.interface import alsoProvides
     >>> alsoProvides(doc, IGeoreferenceable)
 
 now we can set the coordinates
+
     >>> from collective.geo.geographer.interfaces import IWriteGeoreferenced
     >>> geo = IWriteGeoreferenced(doc)
     >>> geo.setGeoInterface('Point', (-100, 40))
@@ -127,6 +129,7 @@ Check the topic
 
 
 A simple view notify us if a context is geo referenceable
+
     >>> doc.restrictedTraverse('@@geoview').isGeoreferenceable()
     True
 
@@ -134,6 +137,7 @@ A simple view notify us if a context is geo referenceable
     False
 
 When we remove the coordinates, corresponding index will return None
+
     >>> geo.removeGeoInterface()
     >>> brain = [b for b in topic.queryCatalog() if b.id == 'doc'][0]
     >>> brain.zgeo_geometry is None
