@@ -77,7 +77,7 @@ An event should have been sent
     >>> events[-1].object is placemark
     True
 
-Use removeGeoInterface() to remove the coordinate from a georeferenced object:
+To remove the coordinate from a georeferenced object, we can use removeGeoInterface method:
 
     >>> geo.removeGeoInterface()
     >>> geo.type is None
@@ -133,7 +133,7 @@ A simple view notify us if a context is geo referenceable
     >>> topic.restrictedTraverse('@@geoview').isGeoreferenceable()
     False
 
-When we remove the coordinates corresponding index will return None
+When we remove the coordinates, corresponding index will return None
     >>> geo.removeGeoInterface()
     >>> brain = [b for b in topic.queryCatalog() if b.id == 'doc'][0]
     >>> brain.zgeo_geometry is None
