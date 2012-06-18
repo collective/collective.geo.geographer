@@ -2,6 +2,17 @@ from setuptools import setup, find_packages
 import os
 
 version = '1.5.dev0'
+install_requires = [
+    'setuptools',
+    'Plone',
+    'geopy',
+]
+# Test if we have built-in JSON - Python 2.6+, 3.0+.
+# Older Python versions require simplejson.
+try:
+    import json
+except ImportError:
+    install_requires.append('simplejson')
 
 setup(name='collective.geo.geographer',
       version=version,
@@ -24,13 +35,7 @@ setup(name='collective.geo.geographer',
       namespace_packages=['collective', 'collective.geo'],
       include_package_data=True,
       zip_safe=False,
-      install_requires=[
-          'setuptools',
-          'Plone',
-          'simplejson',
-          'geopy',
-          # -*- Extra requirements: -*-
-      ],
+      install_requires=install_requires,
       extras_require={
         'tests': [
             'plone.app.testing',

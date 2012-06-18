@@ -16,7 +16,6 @@ its functionalities in collective.geo project.
 Requirements
 ------------
 
-* simplejson
 * geopy
 * Plone >= 4
 

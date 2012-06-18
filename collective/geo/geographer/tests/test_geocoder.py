@@ -1,5 +1,9 @@
 import unittest2 as unittest
-import simplejson
+try:
+    import json
+except ImportError:
+    import simplejson as json
+
 from geopy.geocoders.google import GQueryError
 
 from zope.interface import alsoProvides
@@ -51,7 +55,7 @@ class TestGeocoder(unittest.TestCase):
             obj_url = "%s/@@geocoderview?address=%s" % \
                             (self.portal.absolute_url(), item['address'])
             browser.open(obj_url)
-            view_contents = simplejson.loads(browser.contents)
+            view_contents = json.loads(browser.contents)
 
             i = 0
             for place, (lat, lon) in view_contents:

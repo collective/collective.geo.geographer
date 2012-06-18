@@ -1,4 +1,7 @@
-import simplejson
+try:
+    import json
+except ImportError:
+    import simplejson as json
 from geopy import geocoders
 from geopy.geocoders.google import GQueryError
 
@@ -59,4 +62,4 @@ class GeoCoderView(BrowserView):
             locations = self.geocoder.retrieve(address)
         except GQueryError:
             return 'null'
-        return simplejson.dumps([loc for loc in locations])
+        return json.dumps([loc for loc in locations])
