@@ -64,7 +64,7 @@ give us back what we put in.
     >>> geo.type
     'Point'
     >>> geo.coordinates
-    (-105.08, 40.590000000000003)
+    (-105.08, 40.59)
     >>> geo.crs is None
     True
 
