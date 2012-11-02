@@ -19,11 +19,11 @@ from collective.geo.geographer.tests.base import test_params
 from collective.geo.geographer.interfaces import IGeoreferenceable
 from collective.geo.geographer.interfaces import IGeoCoder
 
-from layers import FUNCTIONAL_TESTING
+from ..testing import CGEO_GEOGRAPHER_FUNCTIONAL
 
 
 class TestGeocoder(unittest.TestCase):
-    layer = FUNCTIONAL_TESTING
+    layer = CGEO_GEOGRAPHER_FUNCTIONAL
 
     def setUp(self):
         self.portal = self.layer['portal']

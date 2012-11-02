@@ -3,7 +3,7 @@ import doctest
 
 from zope.component import eventtesting
 from plone.testing import layered
-from layers import FUNCTIONAL_TESTING
+from ..testing import CGEO_GEOGRAPHER_FUNCTIONAL
 
 
 def setUp(self):  # pylint: disable=W0613
@@ -16,7 +16,7 @@ def test_suite():
         layered(doctest.DocFileSuite('README.txt',
                     package='collective.geo.geographer',
                     setUp=setUp,
-                ), layer=FUNCTIONAL_TESTING),
+                ), layer=CGEO_GEOGRAPHER_FUNCTIONAL),
     ])
     return suite
 

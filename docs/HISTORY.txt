@@ -4,7 +4,7 @@ Changelog
 1.5 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- Refactored test and removed dependency from old Topic content type [gborelli]
 
 
 1.4 (2012-02-11)

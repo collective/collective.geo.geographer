@@ -6,14 +6,6 @@ class IGeoreferenceable(Interface):
     """
 
 
-# class IGeoInterface(Interface):
-#     """Provides the Python geo interface.
-#     See http://trac.gispython.org/projects/PCL/wiki/PythonGeoInterface
-#     for details.
-#     """
-#     __geo_interface__ = Attribute("""Python Geo Interface""")
-
-
 class IGeoreferenced(Interface):
     """A geographically referenced object.
 
@@ -59,9 +51,9 @@ class IGeoView(Interface):
     """
 
     def isGeoreferenceable(self):
-        """ Returns True if an object is Georeferenceable
+        """Returns True if an object is Georeferenceable
         """
 
     def getCoordinates(self):
-        """ Public function to get object coordinates
+        """Public function to get object coordinates
         """

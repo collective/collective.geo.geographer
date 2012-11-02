@@ -2,7 +2,7 @@
   xmlns="http://namespaces.zope.org/zope">
 
   <utility
-    factory='.base.DummyGeoCoder'
+    factory='.tests.base.DummyGeoCoder'
     provides="collective.geo.geographer.interfaces.IGeoCoder"
   />
 

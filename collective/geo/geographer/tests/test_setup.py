@@ -2,11 +2,11 @@
 import unittest2 as unittest
 from Products.CMFCore.utils import getToolByName
 
-from layers import INTEGRATION_TESTING
+from ..testing import CGEO_GEOGRAPHER_INTEGRATION
 
 
 class TestSetup(unittest.TestCase):
-    layer = INTEGRATION_TESTING
+    layer = CGEO_GEOGRAPHER_INTEGRATION
 
     def setUp(self):
         self.cat = getToolByName(self.layer['portal'], 'portal_catalog')

@@ -9,11 +9,13 @@
   <include package="zope.security"/>
   <include package="Products.CMFCore" file="configure.zcml" />
 
+
   <adapter
     factory=".geo.GeoreferencingAnnotator"
     provides=".interfaces.IWriteGeoreferenced"
     trusted="true"
     />
+
 
   <class class=".geo.GeoreferencingAnnotator">
     <require
@@ -26,17 +28,23 @@
       />
   </class>
 
-  <adapter factory='.zgeo_geometry_value'
-           name='zgeo_geometry' />
 
-  <adapter factory='.geocoder.GeoCoder'
-           provides=".interfaces.IGeoCoder"
-           for= '*'/>
+  <adapter
+    factory='.zgeo_geometry_value'
+    name='zgeo_geometry' />
+
+
+  <adapter
+    factory='.geocoder.GeoCoder'
+    provides=".interfaces.IGeoCoder"
+    for= '*'/>
+
 
   <utility
     provides=".interfaces.IGeoCoder"
     factory=".geocoder.get_geocoder"
     />
+
 
   <subscriber
     handler=".event.reindexDocSubscriber"
@@ -45,26 +53,28 @@
 
 
   <browser:page
-      name="geoview"
-      for="*"
-      class=".geoview.GeoView"
-      permission = "zope2.View"
-      allowed_attributes="isGeoreferenceable"
+    name="geoview"
+    for="*"
+    class=".geoview.GeoView"
+    permission="zope2.View"
+    allowed_attributes="isGeoreferenceable"
   />
+
 
   <browser:page
-      name="geocoderview"
-      for="Products.CMFPlone.interfaces.IPloneSiteRoot"
-      class=".geocoder.GeoCoderView"
-      permission = "zope2.View"
+    name="geocoderview"
+    for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+    class=".geocoder.GeoCoderView"
+    permission="zope2.View"
   />
 
+
   <genericsetup:registerProfile
-      name="default"
-      title="Collective Geo Geographer"
-      directory="profiles/default"
-      description="Collective Geographer profile"
-      provides="Products.GenericSetup.interfaces.EXTENSION"
+    name="default"
+    title="Collective Geo Geographer"
+    directory="profiles/default"
+    description="Collective Geographer profile"
+    provides="Products.GenericSetup.interfaces.EXTENSION"
   />
 
 </configure>

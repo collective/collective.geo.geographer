@@ -90,19 +90,12 @@ To remove the coordinate from a georeferenced object, we can use removeGeoInterf
 Plone integration
 -----------------
 
-Make a topic in our folder
+Add geo-referenced content
 
     >>> from plone.app.testing import setRoles
     >>> from plone.app.testing import TEST_USER_ID
     >>> portal = layer['portal']
     >>> setRoles(portal, TEST_USER_ID, ['Manager'])
-
-    >>> oid = portal.invokeFactory('Topic', 'topic')
-    >>> topic = portal[oid]
-    >>> c = topic.addCriterion('getGeometry', 'ATBooleanCriterion')
-
-
-Add geo-referenced content
 
     >>> oid = portal.invokeFactory('Document', 'doc')
     >>> doc = portal[oid]
@@ -118,9 +111,11 @@ now we can set the coordinates
     >>> geo = IWriteGeoreferenced(doc)
     >>> geo.setGeoInterface('Point', (-100, 40))
 
-Check the topic
+Check the catalog results
 
-    >>> brain = [b for b in topic.queryCatalog() if b.id == 'doc'][0]
+    >>> from Products.CMFCore.utils import getToolByName
+    >>> catalog = getToolByName(portal, 'portal_catalog')
+    >>> brain = [b for b in catalog({'getId': 'doc'})][0]
     >>> brain.zgeo_geometry['type']
     'Point'
     >>> brain.zgeo_geometry['coordinates']
@@ -132,13 +127,10 @@ A simple view notify us if a context is geo referenceable
     >>> doc.restrictedTraverse('@@geoview').isGeoreferenceable()
     True
 
-    >>> topic.restrictedTraverse('@@geoview').isGeoreferenceable()
-    False
-
 When we remove the coordinates, corresponding index will return None
 
     >>> geo.removeGeoInterface()
-    >>> brain = [b for b in topic.queryCatalog() if b.id == 'doc'][0]
+    >>> brain = [b for b in catalog({'getId': 'doc'})][0]
     >>> brain.zgeo_geometry is None
     True
 
