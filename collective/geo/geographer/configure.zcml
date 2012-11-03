@@ -6,8 +6,8 @@
   xmlns:browser="http://namespaces.zope.org/browser"
   i18n_domain="collective.geo.geographer" >
 
+  <includeDependencies package="." />
   <include package="zope.security"/>
-  <include package="Products.CMFCore" file="configure.zcml" />
 
 
   <adapter
