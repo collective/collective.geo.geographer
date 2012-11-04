@@ -46,12 +46,6 @@
     />
 
 
-  <subscriber
-    handler=".event.reindexDocSubscriber"
-    for="collective.geo.geographer.event.IObjectGeoreferencedEvent"
-  />
-
-
   <browser:page
     name="geoview"
     for="*"

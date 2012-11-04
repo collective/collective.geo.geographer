@@ -111,6 +111,12 @@ now we can set the coordinates
     >>> geo = IWriteGeoreferenced(doc)
     >>> geo.setGeoInterface('Point', (-100, 40))
 
+and reindex the document.
+    >>> doc.reindexObject(idxs=['zgeo_geometry'])
+
+We can create a subscriber for IObjectGeoreferencedEvent to do that automatically.
+See. collective.geo.contentlocations.eventsreindexCoordsSubscriber
+
 Check the catalog results
 
     >>> from Products.CMFCore.utils import getToolByName
@@ -130,6 +136,7 @@ A simple view notify us if a context is geo referenceable
 When we remove the coordinates, corresponding index will return None
 
     >>> geo.removeGeoInterface()
+    >>> doc.reindexObject(idxs=['zgeo_geometry'])
     >>> brain = [b for b in catalog({'getId': 'doc'})][0]
     >>> brain.zgeo_geometry is None
     True

@@ -4,6 +4,7 @@ Changelog
 1.5 (unreleased)
 ----------------
 
+- Moved reindexDocSubscriber to collective.geo.contentlocations [gborelli]
 - Refactored test and removed dependency from old Topic content type [gborelli]
 
 

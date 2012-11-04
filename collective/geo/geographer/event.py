@@ -21,11 +21,3 @@ ObjectGeoreferencedEvent.descriptions = {}
 logger.info("Patching collective.geo.geographer.events's "\
         "ObjectGeoreferencedEvent to have a 'descriptions' "\
         "field to handle an issue with p4a.plonevideo.")
-
-
-def reindexDocSubscriber(event):
-    """A subscriber to ObjectModifiedEvent"""
-    try:
-        event.object.reindexObject(idxs=['zgeo_geometry'])
-    except:
-        pass
