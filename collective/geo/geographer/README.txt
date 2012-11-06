@@ -63,8 +63,8 @@ give us back what we put in.
 
     >>> geo.type
     'Point'
-    >>> geo.coordinates
-    (-105.08, 40.59)
+    >>> tuple(['%.2f' % x for x in geo.coordinates])
+    ('-105.08', '40.59')
     >>> geo.crs is None
     True
 
