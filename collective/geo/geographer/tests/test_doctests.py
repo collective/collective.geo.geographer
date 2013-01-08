@@ -13,7 +13,7 @@ def setUp(self):  # pylint: disable=W0613
 def test_suite():
     suite = unittest.TestSuite()
     suite.addTests([
-        layered(doctest.DocFileSuite('README.txt',
+        layered(doctest.DocFileSuite('README.rst',
                     package='collective.geo.geographer',
                     setUp=setUp,
                 ), layer=CGEO_GEOGRAPHER_FUNCTIONAL),

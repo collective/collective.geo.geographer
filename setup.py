@@ -18,7 +18,7 @@ setup(name='collective.geo.geographer',
       version=version,
       description="Geographic annotation for Plone",
       long_description=open(
-              "collective/geo/geographer/README.txt").read() + "\n" +
+              "collective/geo/geographer/README.rst").read() + "\n" +
                       open(os.path.join("docs", "HISTORY.txt")).read(),
       classifiers=[
         "Framework :: Plone",

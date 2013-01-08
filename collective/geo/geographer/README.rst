@@ -142,6 +142,13 @@ When we remove the coordinates, corresponding index will return None
     True
 
 
+Mostly Harmless
+---------------
+
+.. image:: https://secure.travis-ci.org/collective/collective.geo.geographer.png
+    :target: http://travis-ci.org/collective/collective.geo.geographer
+
+
 Contributors
 ------------
 
