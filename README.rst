@@ -1,1 +1,1 @@
-collective/geo/geographer/README.txt
+collective/geo/geographer/README.rst
