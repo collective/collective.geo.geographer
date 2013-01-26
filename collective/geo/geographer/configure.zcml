@@ -67,7 +67,7 @@
     name="default"
     title="Collective Geo Geographer"
     directory="profiles/default"
-    description="Collective Geographer profile"
+    description="Geographic annotation for Plone"
     provides="Products.GenericSetup.interfaces.EXTENSION"
   />
 
