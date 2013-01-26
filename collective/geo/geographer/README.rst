@@ -1,26 +1,24 @@
-collective.geo.geographer
-=========================
-
-.. contents:: Summary
-   :local:
-
 Introduction
-------------
+============
+
 
 collective.geo.geographer provides geo annotation for Plone.
 
-This package is based on Sean Gillies's idea (zgeo.geographer) and integrates
+This package is based on Sean Gillies's idea (`zgeo.geographer`_) and integrates
 its functionalities in collective.geo project.
+
+.. contents:: Table of contents
 
 
 Requirements
-------------
+============
 
-* geopy
-* Plone >= 4
+* `geopy`_
+* `Plone`_ >= 4
+
 
 How it work
------------
+===========
 
 Any object that implements zope.annotation.interfaces.IAttributeAnnotatable and
 collective.geo.geographer.interfaces.IGeoreferenceable can be adapted and geo-referenced.
@@ -143,14 +141,21 @@ When we remove the coordinates, corresponding index will return None
 
 
 Mostly Harmless
----------------
+===============
 
 .. image:: https://secure.travis-ci.org/collective/collective.geo.geographer.png
     :target: http://travis-ci.org/collective/collective.geo.geographer
 
 
 Contributors
-------------
+============
 
 * Sean Gillies
 * Giorgio Borelli
+* Christian Ledermann
+* Mirco Angelini
+
+
+.. _zgeo.geographer: http://pypi.python.org/pypi/zgeo.geographer
+.. _geopy: http://pypi.python.org/pypi/geopy
+.. _Plone: http://plone.org
