@@ -15,8 +15,11 @@ KEY = 'collective.geo.geographer.georeference'
 
 
 class GeoreferencingAnnotator(object):
-    """Geographically annotate objects with metadata modeled after GeoJSON.
-    See http://geojson.org
+    """Geographically annotate objects with metadata modelled after GeoJSON.
+    See: http://geojson.org
+
+    It implements
+    :class:`collective.geo.geographer.interfaces.IWriteGeoreferenced`
     """
     implements(IWriteGeoreferenced)
     adapts(IGeoreferenceable)

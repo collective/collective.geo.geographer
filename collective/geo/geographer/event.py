@@ -18,6 +18,8 @@ class ObjectGeoreferencedEvent(object):
 
 
 ObjectGeoreferencedEvent.descriptions = {}
-logger.info("Patching collective.geo.geographer.events's "\
-        "ObjectGeoreferencedEvent to have a 'descriptions' "\
-        "field to handle an issue with p4a.plonevideo.")
+logger.info(
+    "Patching collective.geo.geographer.events's "
+    "ObjectGeoreferencedEvent to have a 'descriptions' "
+    "field to handle an issue with p4a.plonevideo."
+)

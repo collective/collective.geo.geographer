@@ -2,11 +2,16 @@ from zope.interface import implements
 
 from Products.Five.browser import BrowserView
 
-from collective.geo.geographer.interfaces import IGeoreferenceable
-from collective.geo.geographer.interfaces import IGeoView
+from .interfaces import IGeoreferenceable
+from .interfaces import IGeoreferenced
+from .interfaces import IGeoView
 
 
 class GeoView(BrowserView):
+    """A simple view to know if an object is geo referenceable.
+
+    See: :class:`collective.geo.geographer.interfaces.IGeoView`
+    """
     implements(IGeoView)
 
     def __init__(self, context, request):
@@ -14,3 +19,8 @@ class GeoView(BrowserView):
 
     def isGeoreferenceable(self):
         return IGeoreferenceable.providedBy(self.context)
+
+    def getCoordinates(self):
+        if self.isGeoreferenceable():
+            geo = IGeoreferenced(self.context)
+            return geo.type, geo.coordinates

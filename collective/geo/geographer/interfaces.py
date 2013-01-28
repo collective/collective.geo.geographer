@@ -1,4 +1,5 @@
-from zope.interface import Attribute, Interface
+from zope.interface import Attribute
+from zope.interface import Interface
 
 
 class IGeoreferenceable(Interface):
@@ -26,7 +27,15 @@ class IGeoreferenced(Interface):
 class IWritableGeoreference(Interface):
 
     def setGeoInterface(self, type, coordinates, crs):
-        """Set the geometry via the geo interface."""
+        """Set the geometry via the geo interface.
+
+        :param type: Point or LineString or Polygon
+        :type type: string
+        :param coordinates: a sequence of coordinates
+        :type coordinates: tuple
+        :param crs: A coordinate reference system as a dict
+        :type crs: dict
+        """
 
     def removeGeoInterface(self):
         """Remove the geometry via the geo interface."""
@@ -42,7 +51,15 @@ class IGeoCoder(Interface):
     """
 
     def retrieve(self, address=None, google_api=None):
-        """retrieve coordinates by an address
+        """Retrieve coordinates by an address
+
+        :param address: a string representing an address
+            to be converted in coordinates
+        :type address: string
+        :param google_api: google api token
+        :type google_api: string
+        :returns: a sequence of coordinates representing a point
+        :rtype: tuple
         """
 
 
@@ -52,8 +69,14 @@ class IGeoView(Interface):
 
     def isGeoreferenceable(self):
         """Returns True if an object is Georeferenceable
+
+        :returns: return True if context can be geo referenced
+        :rtype: boolean
         """
 
     def getCoordinates(self):
         """Public function to get object coordinates
+
+        :returns: (coordinate type, (a sequence of coordinates)) or None
+        :rtype: tuple
         """

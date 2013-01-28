@@ -1,11 +1,23 @@
+.. role:: class(raw)
+   :format: html
+.. role:: func(raw)
+   :format: html
+.. role:: mod(raw)
+   :format: html
+
+
 Introduction
 ============
 
-
-collective.geo.geographer provides geo annotation for Plone.
+:mod:`collective.geo.geographer` provides geo annotation for `Plone`_.
 
 This package is based on Sean Gillies's idea (`zgeo.geographer`_) and integrates
 its functionalities in collective.geo project.
+
+.. image:: https://secure.travis-ci.org/collective/collective.geo.geographer.png
+    :target: http://travis-ci.org/collective/collective.geo.geographer
+
+Found a bug? Please, use the `issue tracker`_.
 
 .. contents:: Table of contents
 
@@ -20,8 +32,12 @@ Requirements
 How it work
 ===========
 
-Any object that implements zope.annotation.interfaces.IAttributeAnnotatable and
-collective.geo.geographer.interfaces.IGeoreferenceable can be adapted and geo-referenced.
+Any object that implements
+:class:`IAttributeAnnotatable <zope.annotation.interfaces.IAttributeAnnotatable>`
+and
+:class:`IGeoreferenceable <collective.geo.geographer.interfaces.IGeoreferenceable>`
+can be adapted and geo-referenced.
+
 The former marker is standard for Zope content objects, and the latter can be
 easily configured via ZCML.
 
@@ -37,7 +53,7 @@ interfaces mentioned above.
 
     >>> placemark = Placemark()
 
-Adapt it to IGeoreferenced
+Adapt it to :class:`IGeoreferenced <collective.geo.geographer.interfaces.IGeoreferenced>`
 
     >>> from collective.geo.geographer.interfaces import IGeoreferenced
     >>> geo = IGeoreferenced(placemark)
@@ -51,12 +67,13 @@ Its properties should all be None
     >>> geo.crs is None
     True
 
-Now set the location geometry to type "Point" and coordinates 105.08 degrees
-West, 40.59 degrees North using setGeoInterface()
+Now set the location geometry to type *Point* and coordinates *105.08 degrees
+West, 40.59 degrees North* using
+:func:`setGeoInterface <IWritableGeoreference.setGeoInterface>`
 
     >>> geo.setGeoInterface('Point', (-105.08, 40.59))
 
-A georeferenced object has "type" and "coordinates" attributes which should
+A georeferenced object has *type* and *coordinates* attributes which should
 give us back what we put in.
 
     >>> geo.type
@@ -74,7 +91,9 @@ An event should have been sent
     >>> events[-1].object is placemark
     True
 
-To remove the coordinate from a georeferenced object, we can use removeGeoInterface method:
+To remove the coordinate from a georeferenced object, we can
+use :func:`removeGeoInterface <IWritableGeoreference.removeGeoInterface>`
+method:
 
     >>> geo.removeGeoInterface()
     >>> geo.type is None
@@ -98,7 +117,9 @@ Add geo-referenced content
     >>> oid = portal.invokeFactory('Document', 'doc')
     >>> doc = portal[oid]
 
-If content type doesn't implements IGeoreferenceable interfaces we need to provide it
+If content type doesn't implements
+:class:`IGeoreferenceable <collective.geo.geographer.interfaces.IGeoreferenceable>`
+interfaces we need to provide it
 
     >>> from zope.interface import alsoProvides
     >>> alsoProvides(doc, IGeoreferenceable)
@@ -110,10 +131,12 @@ now we can set the coordinates
     >>> geo.setGeoInterface('Point', (-100, 40))
 
 and reindex the document.
+
     >>> doc.reindexObject(idxs=['zgeo_geometry'])
 
-We can create a subscriber for IObjectGeoreferencedEvent to do that automatically.
-See. collective.geo.contentlocations.eventsreindexCoordsSubscriber
+We can create a subscriber for
+:class:`IObjectGeoreferencedEvent <collective.geo.geographer.event.IObjectGeoreferencedEvent>`
+to do that automatically.
 
 Check the catalog results
 
@@ -126,10 +149,17 @@ Check the catalog results
     (-100, 40)
 
 
-A simple view notify us if a context is geo referenceable
+A simple view - :class:`geoview <collective.geo.geographer.interfaces.IGeoView>`
+- notify us if a context is geo referenceable
 
-    >>> doc.restrictedTraverse('@@geoview').isGeoreferenceable()
+    >>> view = doc.restrictedTraverse('@@geoview')
+    >>> view.isGeoreferenceable()
     True
+
+and return its coordinates
+    >>> view.getCoordinates()
+    ('Point', (-100, 40))
+
 
 When we remove the coordinates, corresponding index will return None
 
@@ -140,22 +170,7 @@ When we remove the coordinates, corresponding index will return None
     True
 
 
-Mostly Harmless
-===============
-
-.. image:: https://secure.travis-ci.org/collective/collective.geo.geographer.png
-    :target: http://travis-ci.org/collective/collective.geo.geographer
-
-
-Contributors
-============
-
-* Sean Gillies
-* Giorgio Borelli
-* Christian Ledermann
-* Mirco Angelini
-
-
 .. _zgeo.geographer: http://pypi.python.org/pypi/zgeo.geographer
 .. _geopy: http://pypi.python.org/pypi/geopy
 .. _Plone: http://plone.org
+.. _issue tracker: https://github.com/collective/collective.geo.bundle/issues

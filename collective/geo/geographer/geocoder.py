@@ -41,7 +41,7 @@ class GeoCoder(object):
         import warnings
         import textwrap
         warnings.warn(textwrap.dedent(
-            "IGeoCoder adapter is deprecated" \
+            "IGeoCoder adapter is deprecated"
             " use corresponding utility instead"
         ), DeprecationWarning, 2)
         geocoder = GeoCoderUtility()
@@ -49,8 +49,7 @@ class GeoCoder(object):
 
 
 class GeoCoderView(BrowserView):
-    """A simple view which provides a json
-    output from geopy query
+    """A simple view which provides a json output from geopy query.
     """
 
     def __init__(self, context, request):
