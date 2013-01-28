@@ -4,7 +4,7 @@ Changelog
 1.6 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- Fixed MANIFEST.in [gborelli]
 
 
 1.5 (2013-01-28)

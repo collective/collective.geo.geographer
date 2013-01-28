@@ -1,3 +1,6 @@
+Introduction
+============
+
 .. role:: class(raw)
    :format: html
 .. role:: func(raw)
@@ -5,9 +8,6 @@
 .. role:: mod(raw)
    :format: html
 
-
-Introduction
-============
 
 :mod:`collective.geo.geographer` provides geo annotation for `Plone`_.
 
