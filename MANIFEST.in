@@ -1,1 +1,4 @@
-global-include *.txt *.zcml *.GPL
+recursive-include your *
+recursive-include docs *
+include *
+global-exclude *.pyc
