@@ -5,7 +5,7 @@ version = '1.7.dev0'
 install_requires = [
     'setuptools',
     'Plone',
-    'geopy',
+    'geopy>=0.95.pre',
 ]
 
 # Test if we have built-in JSON - Python 2.6+, 3.0+.
