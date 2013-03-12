@@ -4,7 +4,7 @@ Changelog
 1.7 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- Changed Version of Geopy (moved from 0.94.2 to 0.95) [cippino]
 
 
 1.6 (2013-01-28)
