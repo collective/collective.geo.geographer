@@ -23,9 +23,9 @@ class GeoCoderUtility(object):
 
     def retrieve(self, address=None, google_api=None):
         if google_api:
-            self.geocoder = geocoders.Google(str(google_api))
+            self.geocoder = geocoders.GoogleV3(str(google_api))
         else:
-            self.geocoder = geocoders.Google()
+            self.geocoder = geocoders.GoogleV3()
 
         if not address:
             raise GQueryError
@@ -58,7 +58,7 @@ class GeoCoderView(BrowserView):
 
     def __call__(self, address=None, google_api=None):
         try:
-            locations = self.geocoder.retrieve(address)
+            locations = self.geocoder.retrieve(address,google_api)
         except GQueryError:
             return 'null'
         return json.dumps([loc for loc in locations])
