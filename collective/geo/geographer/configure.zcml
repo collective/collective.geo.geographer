@@ -51,7 +51,7 @@
     for="*"
     class=".geoview.GeoView"
     permission="zope2.View"
-    allowed_attributes="isGeoreferenceable"
+    allowed_attributes="isGeoreferenceable showCoordinatesTab"
   />
 
 
