@@ -67,6 +67,10 @@ Its properties should all be None
     >>> geo.crs is None
     True
 
+Check whether geo referenceable object has coordinates or not
+    >>> geo.hasCoordinates()
+    False
+
 Now set the location geometry to type *Point* and coordinates *105.08 degrees
 West, 40.59 degrees North* using
 :func:`setGeoInterface <IWritableGeoreference.setGeoInterface>`
@@ -81,6 +85,10 @@ give us back what we put in.
     >>> tuple(['%.2f' % x for x in geo.coordinates])
     ('-105.08', '40.59')
     >>> geo.crs is None
+    True
+
+now hasCoordinates method returns True
+    >>> geo.hasCoordinates()
     True
 
 An event should have been sent

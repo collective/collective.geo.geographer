@@ -58,3 +58,6 @@ class GeoreferencingAnnotator(object):
         for key in attrs:
             self.geo[key] = None
         notify(ObjectGeoreferencedEvent(self.context))
+
+    def hasCoordinates(self):
+        return self.coordinates is not None

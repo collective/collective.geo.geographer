@@ -4,6 +4,8 @@ Changelog
 1.7 (unreleased)
 ----------------
 
+- Added hasCoordinates method to GeoreferencingAnnotator to check
+  whether an object has been georeferenced or not [gborelli]
 - Added a method in order to hidden Coordinates tab for dexterity
   content types [valentinaB]
 - Changed Version of Geopy (moved from 0.94.2 to 0.95) [cippino]

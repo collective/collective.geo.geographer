@@ -15,6 +15,7 @@ from .interfaces import IGeoreferenceable
 from .interfaces import IGeoreferenced
 from .interfaces import IGeoView
 
+
 class GeoView(BrowserView):
     """A simple view to know if an object is geo referenceable.
 
@@ -41,3 +42,10 @@ class GeoView(BrowserView):
         if self.isGeoreferenceable():
             geo = IGeoreferenced(self.context)
             return geo.type, geo.coordinates
+
+    def hasCoordinates(self):
+        # return whether context had been georeferenced or not
+        if self.isGeoreferenceable():
+            geo = IGeoreferenced(self.context)
+            return geo.hasCoordinates()
+        return False
