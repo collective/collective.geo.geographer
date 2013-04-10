@@ -4,6 +4,7 @@ Changelog
 1.7 (unreleased)
 ----------------
 
+- Moved showCoordinatesTab to c.geo.contentlocations [gborelli]
 - Added hasCoordinates method to GeoreferencingAnnotator to check
   whether an object has been georeferenced or not [gborelli]
 - Added a method in order to hidden Coordinates tab for dexterity
