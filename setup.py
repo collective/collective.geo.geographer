@@ -4,7 +4,7 @@ import os
 version = '1.7.dev0'
 install_requires = [
     'setuptools',
-    'Plone',
+    'Products.CMFCore',
     'geopy>=0.95.pre',
 ]
 

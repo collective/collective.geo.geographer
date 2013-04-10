@@ -7,8 +7,6 @@
   i18n_domain="collective.geo.geographer" >
 
   <includeDependencies package="." />
-  <include package="zope.security"/>
-
 
   <adapter
     factory=".geo.GeoreferencingAnnotator"
@@ -19,11 +17,11 @@
 
   <class class=".geo.GeoreferencingAnnotator">
     <require
-      permission="zope.View"
+      permission="zope2.View"
       interface=".interfaces.IGeoreferenced"
       />
     <require
-      permission="zope.ManageContent"
+      permission="cmf.ModifyPortalContent"
       interface=".interfaces.IWritableGeoreference"
       />
   </class>
