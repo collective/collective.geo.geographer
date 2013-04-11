@@ -1,7 +1,7 @@
 Changelog
 =========
 
-1.7 (unreleased)
+1.7 (2013-04-11)
 ----------------
 
 - Fixed permission on GeoreferencingAnnotator. See #3 [gborelli]
@@ -10,7 +10,8 @@ Changelog
   whether an object has been georeferenced or not [gborelli]
 - Added a method in order to hidden Coordinates tab for dexterity
   content types [valentinaB]
-- Changed Version of Geopy (moved from 0.94.2 to 0.95) [cippino]
+- Changed Version of Geopy (moved from 0.94.2 to 0.95) to support
+  Google api v3 in geocoder [cippino]
 
 
 1.6 (2013-01-28)

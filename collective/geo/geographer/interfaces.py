@@ -26,7 +26,7 @@ class IGeoreferenced(Interface):
 
 class IWritableGeoreference(Interface):
 
-    def setGeoInterface(self, type, coordinates, crs):
+    def setGeoInterface(type, coordinates, crs):
         """Set the geometry via the geo interface.
 
         :param type: Point or LineString or Polygon
@@ -50,7 +50,7 @@ class IGeoCoder(Interface):
     """Adapter for geocoding feature
     """
 
-    def retrieve(self, address=None, google_api=None):
+    def retrieve(address=None, google_api=None):
         """Retrieve coordinates by an address
 
         :param address: a string representing an address
@@ -67,16 +67,23 @@ class IGeoView(Interface):
     """View to access coordinates
     """
 
-    def isGeoreferenceable(self):
+    def isGeoreferenceable():
         """Returns True if an object is Georeferenceable
 
         :returns: return True if context can be geo referenced
         :rtype: boolean
         """
 
-    def getCoordinates(self):
+    def getCoordinates():
         """Public function to get object coordinates
 
         :returns: (coordinate type, (a sequence of coordinates)) or None
         :rtype: tuple
+        """
+
+    def hasCoordinates():
+        """Return whether context has been georeferenced or not
+
+        :returns: return True if context coordinates are not null
+        :rtype: boolean
         """

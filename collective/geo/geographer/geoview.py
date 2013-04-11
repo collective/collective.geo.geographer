@@ -27,7 +27,8 @@ class GeoView(BrowserView):
             return geo.type, geo.coordinates
 
     def hasCoordinates(self):
-        # return whether context had been georeferenced or not
+        """Return whether context has been georeferenced or not
+        """
         if self.isGeoreferenceable():
             geo = IGeoreferenced(self.context)
             return geo.hasCoordinates()

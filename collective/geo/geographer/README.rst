@@ -125,7 +125,7 @@ Add geo-referenced content
     >>> oid = portal.invokeFactory('Document', 'doc')
     >>> doc = portal[oid]
 
-If content type doesn't implements
+If content type doesn't implement
 :class:`IGeoreferenceable <collective.geo.geographer.interfaces.IGeoreferenceable>`
 interfaces we need to provide it
 
