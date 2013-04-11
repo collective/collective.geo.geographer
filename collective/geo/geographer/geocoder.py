@@ -22,10 +22,9 @@ class GeoCoderUtility(object):
     implements(IGeoCoder)
 
     def retrieve(self, address=None, google_api=None):
-        if google_api:
-            self.geocoder = geocoders.GoogleV3(str(google_api))
-        else:
-            self.geocoder = geocoders.GoogleV3()
+        # TODO: fix google_api > secret_key and client_id parameters
+        # See https://github.com/geopy/geopy/blob/master/geopy/geocoders/googlev3.py#L31
+        self.geocoder = geocoders.GoogleV3()
 
         if not address:
             raise GQueryError
@@ -58,7 +57,7 @@ class GeoCoderView(BrowserView):
 
     def __call__(self, address=None, google_api=None):
         try:
-            locations = self.geocoder.retrieve(address,google_api)
+            locations = self.geocoder.retrieve(address, google_api)
         except GQueryError:
             return 'null'
         return json.dumps([loc for loc in locations])
