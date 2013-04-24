@@ -4,7 +4,9 @@ Changelog
 1.8 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- Unwrap GeoreferencingAnnotator context before to fire
+  ObjectGeoreferencedEvent. It raises an error with Dexterity CT
+  [gborelli]
 
 
 1.7 (2013-04-11)
