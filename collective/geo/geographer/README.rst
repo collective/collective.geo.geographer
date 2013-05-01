@@ -68,6 +68,7 @@ Its properties should all be None
     True
 
 Check whether geo referenceable object has coordinates or not
+
     >>> geo.hasCoordinates()
     False
 
@@ -88,6 +89,7 @@ give us back what we put in.
     True
 
 now hasCoordinates method returns True
+
     >>> geo.hasCoordinates()
     True
 
@@ -165,6 +167,7 @@ A simple view - :class:`geoview <collective.geo.geographer.interfaces.IGeoView>`
     True
 
 and return its coordinates
+
     >>> view.getCoordinates()
     ('Point', (-100, 40))
 
