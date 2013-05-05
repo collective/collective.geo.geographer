@@ -1,4 +1,3 @@
-from Acquisition import aq_base
 from zope.interface import implements
 from zope.component import adapts
 from zope.event import notify
@@ -26,8 +25,8 @@ class GeoreferencingAnnotator(object):
     adapts(IGeoreferenceable)
 
     def __init__(self, context):
-        self.context = aq_base(context)
-        annotations = IAnnotations(self.context)
+        self.context = context
+        annotations = IAnnotations(context)
         self.geo = annotations.get(KEY, None)
         if not self.geo:
             annotations[KEY] = PersistentDict()
