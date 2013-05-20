@@ -7,6 +7,4 @@
 
   <include file="configure.zcml" />
 
-  <includeOverrides file="tests/test-overrides.zcml" />
-
 </configure>

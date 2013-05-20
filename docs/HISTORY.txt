@@ -4,7 +4,11 @@ Changelog
 1.8 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- move IGeoCoder utility to c.geo.mapwidget
+  [gborelli]
+
+- remove IGeoCoder adapter
+  [gborelli]
 
 
 1.7 (2013-04-11)

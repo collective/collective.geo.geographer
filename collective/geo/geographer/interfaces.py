@@ -46,23 +46,6 @@ class IWriteGeoreferenced(IGeoreferenced, IWritableGeoreference):
     """
 
 
-class IGeoCoder(Interface):
-    """Adapter for geocoding feature
-    """
-
-    def retrieve(address=None, google_api=None):
-        """Retrieve coordinates by an address
-
-        :param address: a string representing an address
-            to be converted in coordinates
-        :type address: string
-        :param google_api: google api token
-        :type google_api: string
-        :returns: a sequence of coordinates representing a point
-        :rtype: tuple
-        """
-
-
 class IGeoView(Interface):
     """View to access coordinates
     """

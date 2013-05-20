@@ -32,18 +32,6 @@
     name='zgeo_geometry' />
 
 
-  <adapter
-    factory='.geocoder.GeoCoder'
-    provides=".interfaces.IGeoCoder"
-    for= '*'/>
-
-
-  <utility
-    provides=".interfaces.IGeoCoder"
-    factory=".geocoder.get_geocoder"
-    />
-
-
   <browser:page
     name="geoview"
     for="*"
@@ -51,14 +39,6 @@
     permission="zope2.View"
     allowed_attributes="isGeoreferenceable
       hasCoordinates"
-  />
-
-
-  <browser:page
-    name="geocoderview"
-    for="Products.CMFPlone.interfaces.IPloneSiteRoot"
-    class=".geocoder.GeoCoderView"
-    permission="zope2.View"
   />
 
 

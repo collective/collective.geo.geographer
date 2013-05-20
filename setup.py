@@ -4,8 +4,7 @@ import os
 version = '1.8.dev0'
 install_requires = [
     'setuptools',
-    'Products.CMFCore',
-    'geopy>=0.95.pre',
+    'Products.CMFCore'
 ]
 
 # Test if we have built-in JSON - Python 2.6+, 3.0+.
