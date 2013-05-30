@@ -4,6 +4,9 @@ Changelog
 1.8 (unreleased)
 ----------------
 
+- remove style key from zgeo_geometry metadata
+  [gborelli]
+
 - move IGeoCoder utility to c.geo.mapwidget
   [gborelli]
 

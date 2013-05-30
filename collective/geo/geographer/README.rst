@@ -177,8 +177,8 @@ When we remove the coordinates, corresponding index will return None
     >>> geo.removeGeoInterface()
     >>> doc.reindexObject(idxs=['zgeo_geometry'])
     >>> brain = [b for b in catalog({'getId': 'doc'})][0]
-    >>> brain.zgeo_geometry is None
-    True
+    >>> brain.zgeo_geometry
+    Missing.Value
 
 
 .. _zgeo.geographer: http://pypi.python.org/pypi/zgeo.geographer
