@@ -1,8 +1,8 @@
 Changelog
 =========
 
-1.8 (unreleased)
-----------------
+2.0b1 (2013-06-02)
+------------------
 
 - remove style key from zgeo_geometry metadata
   [gborelli]

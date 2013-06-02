@@ -25,8 +25,13 @@ Found a bug? Please, use the `issue tracker`_.
 Requirements
 ============
 
-* `geopy`_
 * `Plone`_ >= 4
+
+Installation
+============
+
+This addon can be installed has any other addons, please follow official
+documentation_.
 
 
 How it work
@@ -182,6 +187,6 @@ When we remove the coordinates, corresponding index will return None
 
 
 .. _zgeo.geographer: http://pypi.python.org/pypi/zgeo.geographer
-.. _geopy: http://pypi.python.org/pypi/geopy
 .. _Plone: http://plone.org
 .. _issue tracker: https://github.com/collective/collective.geo.bundle/issues
+.. _documentation: http://plone.org/documentation/kb/installing-add-ons-quick-how-to
