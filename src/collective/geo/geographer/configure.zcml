@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<configure
+  xmlns="http://namespaces.zope.org/zope"
+  xmlns:five="http://namespaces.zope.org/five"
+  xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+  xmlns:browser="http://namespaces.zope.org/browser"
+  i18n_domain="collective.geo.geographer" >
+
+  <includeDependencies package="." />
+
+  <adapter
+    factory=".geo.GeoreferencingAnnotator"
+    provides=".interfaces.IWriteGeoreferenced"
+    trusted="true"
+    />
+
+
+  <class class=".geo.GeoreferencingAnnotator">
+    <require
+      permission="zope2.View"
+      interface=".interfaces.IGeoreferenced"
+      />
+    <require
+      permission="cmf.ModifyPortalContent"
+      interface=".interfaces.IWritableGeoreference"
+      />
+  </class>
+
+
+  <adapter
+    factory='.zgeo_geometry_value'
+    name='zgeo_geometry' />
+
+
+  <browser:page
+    name="geoview"
+    for="*"
+    class=".geoview.GeoView"
+    permission="zope2.View"
+    allowed_attributes="isGeoreferenceable
+      hasCoordinates"
+  />
+
+
+  <genericsetup:registerProfile
+    name="default"
+    title="Collective Geo Geographer"
+    directory="profiles/default"
+    description="Geographic annotation for Plone"
+    provides="Products.GenericSetup.interfaces.EXTENSION"
+  />
+
+</configure>
