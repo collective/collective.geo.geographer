@@ -1,4 +1,4 @@
-.. include:: ../collective/geo/geographer/README.rst
+.. include:: ../src/collective/geo/geographer/README.rst
 
 
 Package documentation

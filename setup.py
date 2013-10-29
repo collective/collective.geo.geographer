@@ -18,7 +18,7 @@ setup(name='collective.geo.geographer',
       version=version,
       description="Geographic annotation for Plone",
       long_description=open(
-          "collective/geo/geographer/README.rst").read() + "\n" + open(
+          "src/collective/geo/geographer/README.rst").read() + "\n" + open(
               os.path.join("docs", "CONTRIBUTORS.txt")).read() + "\n" + open(
                   os.path.join("docs", "HISTORY.txt")).read(),
       classifiers=[
@@ -32,7 +32,8 @@ setup(name='collective.geo.geographer',
       author_email='giorgio@giorgioborelli.it',
       url="http://plone.org/products/collective.geo",
       license='GPL',
-      packages=find_packages(exclude=['ez_setup']),
+      packages=find_packages('src'),
+      package_dir={'': 'src'},
       namespace_packages=['collective', 'collective.geo'],
       include_package_data=True,
       zip_safe=False,
