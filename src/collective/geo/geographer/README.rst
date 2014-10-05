@@ -3,13 +3,13 @@ Introduction
 
 .. role:: class(raw)
    :format: html
-.. role:: func(raw)
+.. role:: meth(raw)
    :format: html
 .. role:: mod(raw)
    :format: html
 
 
-:mod:`collective.geo.geographer` provides geo annotation for `Plone`_.
+:mod:`collective.geo.geographer` provides geo-annotation for `Plone`_.
 
 This package is based on Sean Gillies's idea (`zgeo.geographer`_) and integrates
 its functionalities in collective.geo project.
@@ -30,12 +30,12 @@ Requirements
 Installation
 ============
 
-This addon can be installed has any other addons, please follow official
+This addon can be installed like any other addon, please follow the official
 documentation_.
 
 
-How it work
-===========
+How it works
+============
 
 Any object that implements
 :class:`IAttributeAnnotatable <zope.annotation.interfaces.IAttributeAnnotatable>`
@@ -43,11 +43,11 @@ and
 :class:`IGeoreferenceable <collective.geo.geographer.interfaces.IGeoreferenceable>`
 can be adapted and geo-referenced.
 
-The former marker is standard for Zope content objects, and the latter can be
-easily configured via ZCML.
+All Zope content objects provide the former,
+and the latter can be easily configured via ZCML.
 
 Let's test with an example placemark, which provides both of the marker
-interfaces mentioned above.
+interfaces mentioned above::
 
     >>> from zope.interface import implements
     >>> from zope.annotation.interfaces import IAttributeAnnotatable
@@ -58,12 +58,13 @@ interfaces mentioned above.
 
     >>> placemark = Placemark()
 
-Adapt it to :class:`IGeoreferenced <collective.geo.geographer.interfaces.IGeoreferenced>`
+Adapt it to 
+:class:`IGeoreferenced <collective.geo.geographer.interfaces.IGeoreferenced>`::
 
     >>> from collective.geo.geographer.interfaces import IGeoreferenced
     >>> geo = IGeoreferenced(placemark)
 
-Its properties should all be None
+Its properties should all be ``None``::
 
     >>> geo.type is None
     True
@@ -72,19 +73,19 @@ Its properties should all be None
     >>> geo.crs is None
     True
 
-Check whether geo referenceable object has coordinates or not
+Check whether the geo-referenceable object has coordinates or not::
 
     >>> geo.hasCoordinates()
     False
 
-Now set the location geometry to type *Point* and coordinates *105.08 degrees
-West, 40.59 degrees North* using
-:func:`setGeoInterface <IWritableGeoreference.setGeoInterface>`
+Now set the location geometry to type *Point* and coordinates 
+*105.08 degrees West, 40.59 degrees North* using
+:meth:`setGeoInterface <IWritableGeoreference.setGeoInterface>`::
 
     >>> geo.setGeoInterface('Point', (-105.08, 40.59))
 
-A georeferenced object has *type* and *coordinates* attributes which should
-give us back what we put in.
+A georeferenced object has ``type`` and ``coordinates`` attributes which should
+give us back what we put in::
 
     >>> geo.type
     'Point'
@@ -93,12 +94,13 @@ give us back what we put in.
     >>> geo.crs is None
     True
 
-now hasCoordinates method returns True
+Now the :meth:`hasCoordinates <IGeoView.hasCoordinates>`
+method returns True::
 
     >>> geo.hasCoordinates()
     True
 
-An event should have been sent
+An event should have been sent::
 
     >>> from zope.component.eventtesting import getEvents
     >>> from collective.geo.geographer.event import IObjectGeoreferencedEvent
@@ -107,8 +109,8 @@ An event should have been sent
     True
 
 To remove the coordinate from a georeferenced object, we can
-use :func:`removeGeoInterface <IWritableGeoreference.removeGeoInterface>`
-method:
+use the :meth:`removeGeoInterface <IWritableGeoreference.removeGeoInterface>`
+method::
 
     >>> geo.removeGeoInterface()
     >>> geo.type is None
@@ -122,7 +124,7 @@ method:
 Plone integration
 -----------------
 
-Add geo-referenced content
+Add geo-referenced content::
 
     >>> from plone.app.testing import setRoles
     >>> from plone.app.testing import TEST_USER_ID
@@ -132,20 +134,20 @@ Add geo-referenced content
     >>> oid = portal.invokeFactory('Document', 'doc')
     >>> doc = portal[oid]
 
-If content type doesn't implement
+If the content type doesn't implement
 :class:`IGeoreferenceable <collective.geo.geographer.interfaces.IGeoreferenceable>`
-interfaces we need to provide it
+interfaces, we need to provide it::
 
     >>> from zope.interface import alsoProvides
     >>> alsoProvides(doc, IGeoreferenceable)
 
-now we can set the coordinates
+Now we can set the coordinates::
 
     >>> from collective.geo.geographer.interfaces import IWriteGeoreferenced
     >>> geo = IWriteGeoreferenced(doc)
     >>> geo.setGeoInterface('Point', (-100, 40))
 
-and reindex the document.
+and reindex the document::
 
     >>> doc.reindexObject(idxs=['zgeo_geometry'])
 
@@ -153,7 +155,7 @@ We can create a subscriber for
 :class:`IObjectGeoreferencedEvent <collective.geo.geographer.event.IObjectGeoreferencedEvent>`
 to do that automatically.
 
-Check the catalog results
+Check the catalog results::
 
     >>> from Products.CMFCore.utils import getToolByName
     >>> catalog = getToolByName(portal, 'portal_catalog')
@@ -163,21 +165,19 @@ Check the catalog results
     >>> brain.zgeo_geometry['coordinates']
     (-100, 40)
 
-
-A simple view - :class:`geoview <collective.geo.geographer.interfaces.IGeoView>`
-- notify us if a context is geo referenceable
+A simple view (:class:`geoview <collective.geo.geographer.interfaces.IGeoView>`)
+notifies us if a context is geo-referenceable::
 
     >>> view = doc.restrictedTraverse('@@geoview')
     >>> view.isGeoreferenceable()
     True
 
-and return its coordinates
+and allows us to find its coordinates::
 
     >>> view.getCoordinates()
     ('Point', (-100, 40))
 
-
-When we remove the coordinates, corresponding index will return None
+When we remove the coordinates, the corresponding index will return ``None``::
 
     >>> geo.removeGeoInterface()
     >>> doc.reindexObject(idxs=['zgeo_geometry'])
