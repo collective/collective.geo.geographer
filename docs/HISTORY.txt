@@ -5,7 +5,8 @@ Changelog
 2.1 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- using PLONE_APP_CONTENTTYPES_FIXTURE to make tests plone5 compatible
+  [pbauer]
 
 
 2.0 (2013-10-29)
