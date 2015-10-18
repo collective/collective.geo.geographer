@@ -8,16 +8,16 @@ import collective.geo.geographer
 
 
 CGEO_GEOGRAPHER = PloneWithPackageLayer(
-    defaultBases=(PLONE_APP_CONTENTTYPES_FIXTURE, ),
+    bases=(PLONE_APP_CONTENTTYPES_FIXTURE, ),
     zcml_package=collective.geo.geographer,
     zcml_filename='testing.zcml',
     gs_profile_id='collective.geo.geographer:default',
     name="CGEO_GEOGRAPHER")
 
 CGEO_GEOGRAPHER_INTEGRATION = IntegrationTesting(
-    defaultBases=(CGEO_GEOGRAPHER, ),
+    bases=(CGEO_GEOGRAPHER, ),
     name="CGEO_GEOGRAPHER_INTEGRATION")
 
 CGEO_GEOGRAPHER_FUNCTIONAL = FunctionalTesting(
-    defaultBases=(CGEO_GEOGRAPHER, ),
+    bases=(CGEO_GEOGRAPHER, ),
     name="CGEO_GEOGRAPHER_FUNCTIONAL")
