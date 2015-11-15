@@ -1,14 +1,21 @@
 # -*- coding: utf-8 -*-
-from plone.app.contenttypes.testing import PLONE_APP_CONTENTTYPES_FIXTURE
+import collective.geo.geographer
+import pkg_resources
 from plone.app.testing import PloneWithPackageLayer
 from plone.app.testing import IntegrationTesting
 from plone.app.testing import FunctionalTesting
 
-import collective.geo.geographer
+try:
+    pkg_resources.get_distribution('plone.dexterity')
+except pkg_resources.DistributionNotFound:
+    BASES = []
+else:
+    from plone.app.contenttypes.testing import PLONE_APP_CONTENTTYPES_FIXTURE
+    BASES = (PLONE_APP_CONTENTTYPES_FIXTURE, )
 
 
 CGEO_GEOGRAPHER = PloneWithPackageLayer(
-    bases=(PLONE_APP_CONTENTTYPES_FIXTURE, ),
+    bases=BASES,
     zcml_package=collective.geo.geographer,
     zcml_filename='testing.zcml',
     gs_profile_id='collective.geo.geographer:default',
