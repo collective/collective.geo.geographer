@@ -6,9 +6,9 @@ from plone.app.testing import IntegrationTesting
 from plone.app.testing import FunctionalTesting
 
 try:
-    pkg_resources.get_distribution('plone.dexterity')
+    pkg_resources.get_distribution('plone.app.contenttypes')
 except pkg_resources.DistributionNotFound:
-    BASES = []
+    BASES = None
 else:
     from plone.app.contenttypes.testing import PLONE_APP_CONTENTTYPES_FIXTURE
     BASES = (PLONE_APP_CONTENTTYPES_FIXTURE, )
