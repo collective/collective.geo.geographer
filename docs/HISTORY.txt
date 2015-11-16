@@ -5,6 +5,9 @@ Changelog
 2.1 (unreleased)
 ----------------
 
+- Removed unittest2 using unittest instead.
+  [giorgio]
+
 - using PLONE_APP_CONTENTTYPES_FIXTURE to make tests plone5 compatible
   [pbauer]
 

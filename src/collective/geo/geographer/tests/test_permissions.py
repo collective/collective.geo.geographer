@@ -1,6 +1,6 @@
 from collective.geo.geographer.testing import CGEO_GEOGRAPHER_INTEGRATION
 from operator import itemgetter
-from unittest2 import TestCase
+from unittest import TestCase
 
 
 class TestViewPermissionRegression(TestCase):
