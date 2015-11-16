@@ -40,7 +40,9 @@ setup(name='collective.geo.geographer',
       install_requires=install_requires,
       extras_require={
           'test': [
-              'plone.app.testing',
+              # see. PLONE_APP_CONTENTTYPES_FIXTURE
+              'plone.app.testing [robot]',
+              'plone.app.robotframework [debug, reload] > 0.9.8'
           ],
       },
       entry_points="""
