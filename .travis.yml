@@ -1,5 +1,6 @@
 language: python
 python: 2.7
+sudo: false
 env:
   - PLONE_VERSION=4.2
   - PLONE_VERSION=4.3
@@ -10,3 +11,6 @@ install:
   - python bootstrap.py -c travis.cfg
   - bin/buildout -c travis.cfg -N -q -t 3
 script: bin/test
+
+
+

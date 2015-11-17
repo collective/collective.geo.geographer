@@ -5,6 +5,6 @@
     xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
     i18n_domain="collective.geo.geographer">
 
-  <include file="configure.zcml" />
+    <include file="configure.zcml" />
 
 </configure>
