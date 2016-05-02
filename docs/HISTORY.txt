@@ -7,10 +7,11 @@ Changelog
 
 - Removed unittest2 using unittest instead.
   [giorgio]
-
 - using PLONE_APP_CONTENTTYPES_FIXTURE to make tests plone5 compatible
   [pbauer]
-
+- ``IObjectGeoreferencedEvent`` doesn't acquire from ``IObjectModifiedEvent``
+  anymore. See `issue 5 on collective.geo.geographer`_.
+  [keul]
 
 2.0 (2013-10-29)
 ----------------
@@ -90,3 +91,5 @@ Changelog
 * removed zgeo.geographer dependency
 * zgeo.plone.geographer code refactoring
 * moved from zgeo.plone.geographer
+
+.. _`issue 5 on collective.geo.geographer`: https://github.com/collective/collective.geo.geographer/issues/5
