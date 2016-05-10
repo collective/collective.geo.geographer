@@ -1,11 +1,11 @@
 from zope.interface import implements
-from zope.lifecycleevent.interfaces import IObjectModifiedEvent
+from zope.component.interfaces import IObjectEvent
 
 import logging
 logger = logging.getLogger('collective.geo.geographer')
 
 
-class IObjectGeoreferencedEvent(IObjectModifiedEvent):
+class IObjectGeoreferencedEvent(IObjectEvent):
     """An event signaling that an object has been georeferenced
     """
 
