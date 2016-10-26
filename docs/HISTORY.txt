@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-2.1 (unreleased)
+2.1 (2016-10-26)
 ----------------
 
 - Removed unittest2 using unittest instead.
