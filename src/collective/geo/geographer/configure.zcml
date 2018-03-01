@@ -49,5 +49,13 @@
     description="Geographic annotation for Plone"
     provides="Products.GenericSetup.interfaces.EXTENSION"
   />
+  <genericsetup:registerProfile
+    name="uninstall"
+    title="Collective Geo Geographer (uninstall)"
+    directory="profiles/uninstall"
+    description="Uninstall geographic annotation for Plone"
+    provides="Products.GenericSetup.interfaces.EXTENSION"
+  />
+
 
 </configure>
